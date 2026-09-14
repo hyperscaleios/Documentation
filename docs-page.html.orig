@@ -1,0 +1,815 @@
+<!DOCTYPE html><html lang="en"> 
+<head>      
+  <title>HDA Documentation </title>    
+  <!-- Meta -->      
+  <meta charset="utf-8">      
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">      
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">        
+  <meta name="description" content="HDA Documentation User's Guide">      
+  <meta name="author" content="Brady Chang at Hyperscale IO">          
+  <link rel="shortcut icon" href="favicon.ico">     
+
+  <!-- Google Font -->    
+  <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700&display=swap" rel="stylesheet">    
+
+  <!-- FontAwesome JS-->
+    <script defer src="assets/fontawesome/js/all.min.js"></script>
+
+  <!-- Plugins CSS -->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.2/styles/atom-one-dark.min.css">
+    <link rel="stylesheet" href="assets/plugins/simplelightbox/simple-lightbox.min.css">
+    <link rel="stylesheet" href="assets/plugins/simplelightbox/hsio.css">
+
+  <!-- Theme CSS -->  
+    <link id="theme-style" rel="stylesheet" href="assets/css/theme.css">
+
+</head> 
+
+<body class="docs-page">    
+    <header class="header fixed-top">	    
+        <div class="branding docs-branding">
+            <div class="container-fluid position-relative py-2">
+                <div class="docs-logo-wrapper">
+					<button id="docs-sidebar-toggler" class="docs-sidebar-toggler docs-sidebar-visible me-2 d-xl-none" type="button">
+	                    <span></span>
+	                    <span></span>
+	                    <span></span>
+	                </button>
+	                <div class="site-logo"><a class="navbar-brand" href="index.html">
+                           <img class="logo-icon me-2" src="assets/images/hsio_logo.png" width="30" height="30" alt="logo">
+                           <span class="logo-text">Hyperscale<span class="text-alt">IO</span></span>
+                           </a>
+                        </div>                 </div><!--//docs-logo-wrapper-->
+	            <div class="docs-top-utilities d-flex justify-content-end align-items-center">
+	                <div class="top-search-box d-none d-lg-flex">
+				<!-- 
+		                <form class="search-form">
+				            <input type="text" placeholder="Search the docs..." 
+                                            name="search" class="form-control search-input">
+				            <button type="submit" class="btn search-btn" value="Search">
+                                              <i class="fas fa-search"></i>
+                                            </button>
+				        </form>
+			        -->
+	                </div>
+    
+			<ul class="social-list list-inline mx-md-3 mx-lg-5 mb-0 d-none d-lg-flex">
+<!--
+			  <li class="list-inline-item"><a href="#"><i class="fa-brands fa-github fa-fw"></i></a></li>			            
+                          <li class="list-inline-item"><a href="#"><i class="fa-brands fa-x-twitter fa-fw"></i></a></li>		                
+                          <li class="list-inline-item"><a href="#"><i class="fa-brands fa-slack fa-fw"></i></a></li>		               
+                          <li class="list-inline-item"><a href="#"><i class="fa-brands fa-product-hunt fa-fw"></i></a></li>		            
+-->
+                        </ul><!--//social-list-->		            
+                        <a href="https://hsio.com/" class="btn btn-primary d-none d-lg-flex">
+                            H S I O 
+                        </a>	            
+                  </div><!--//docs-top-utilities-->            
+               </div><!--//container-fluid-->        
+          </div><!--//branding-->    
+        </header><!--//header-->            
+        <div class="docs-wrapper">	    
+          <div id="docs-sidebar" class="docs-sidebar">		    
+             <div class="top-search-box d-lg-none p-3">                
+                <form class="search-form">		            
+                   <input type="text" placeholder="Search the docs..." name="search" class="form-control search-input">		            
+                   <button type="submit" class="btn search-btn" value="Search"><i class="fas fa-search"></i></button>		        
+                </form>            
+             </div>		    
+             <nav id="docs-nav" class="docs-nav navbar">			   
+                <ul class="section-items list-unstyled nav flex-column pb-3">				    
+                <li class="nav-item section-title"><a class="nav-link scrollto active" href="#section-1"><span class="theme-icon-holder me-2"><i class="fas fa-map-signs"></i></span>Introduction</a></li>
+		<li class="nav-item"><a class="nav-link scrollto" href="#item-1-1">HDA Cluster</a></li>
+		<li class="nav-item"><a class="nav-link scrollto" href="#item-1-2">Master node </a></li>
+		<li class="nav-item"><a class="nav-link scrollto" href="#item-1-3">Secondary Master</a></li>
+		<li class="nav-item"><a class="nav-link scrollto" href="#item-1-4">Worker nodes </a></li>
+		<li class="nav-item"><a class="nav-link scrollto" href="#item-1-5">Interconnect </a></li>
+		<li class="nav-item section-title mt-3"><a class="nav-link scrollto" href="#section-2"><span class="theme-icon-holder me-2">
+
+                <i class="fas fa-arrow-down"></i></span>Setup</a></li>
+		<li class="nav-item"><a class="nav-link scrollto" href="#item-2-1">Power</a></li>
+		<li class="nav-item"><a class="nav-link scrollto" href="#item-2-2">Network </a></li>
+		<li class="nav-item"><a class="nav-link scrollto" href="#item-2-3">Starting up</a></li>
+		<li class="nav-item section-title mt-3"><a class="nav-link scrollto" href="#section-3"> <span class="theme-icon-holder me-2">
+
+                <i class="fas fa-cogs"></i></span>HDA Portal</a></li>
+		<li class="nav-item"><a class="nav-link scrollto" href="#item-3-1">Section Item 3.1</a></li>
+		<li class="nav-item"><a class="nav-link scrollto" href="#item-3-2">Section Item 3.2</a></li>
+		<li class="nav-item"><a class="nav-link scrollto" href="#item-3-3">Section Item 3.3</a></li>
+		<li class="nav-item section-title mt-3"><a class="nav-link scrollto" href="#section-4"><span class="theme-icon-holder me-2">
+
+                <i class="fas fa-cogs"></i></span>API</a></li>
+		<li class="nav-item"><a class="nav-link scrollto" href="#item-4-1">Section Item 4.1</a></li>
+		<li class="nav-item"><a class="nav-link scrollto" href="#item-4-2">Section Item 4.2</a></li>
+		<li class="nav-item"><a class="nav-link scrollto" href="#item-4-3">Section Item 4.3</a></li>
+		<li class="nav-item section-title mt-3"><a class="nav-link scrollto" href="#section-5"><span class="theme-icon-holder me-2">
+
+                <i class="fas fa-tools"></i></span>Integration</a></li>
+		<li class="nav-item"><a class="nav-link scrollto" href="#item-5-1">Section Item 5.1</a></li>
+		<li class="nav-item"><a class="nav-link scrollto" href="#item-5-2">Section Item 5.2</a></li>
+		<li class="nav-item"><a class="nav-link scrollto" href="#item-5-3">Section Item 5.3</a></li>
+		<li class="nav-item section-title mt-3"><a class="nav-link scrollto" href="#section-6"><span class="theme-icon-holder me-2">
+
+                <i class="fas fa-laptop-code"></i></span>Automation</a></li>
+		<li class="nav-item"><a class="nav-link scrollto" href="#item-6-1">Ansible</a></li>
+		<li class="nav-item"><a class="nav-link scrollto" href="#item-6-2">Section Item 6.2</a></li>
+		<li class="nav-item"><a class="nav-link scrollto" href="#item-6-3">Section Item 6.3</a></li>
+		<li class="nav-item section-title mt-3"><a class="nav-link scrollto" href="#section-8"><span class="theme-icon-holder me-2">                                        
+                   <i class="fas fa-book-reader"></i></span>Resources</a>
+                </li>				    
+                <li class="nav-item"><a class="nav-link scrollto" href="#item-8-1">Flask </a></li>				    
+                <li class="nav-item"><a class="nav-link scrollto" href="#item-8-2">HTML Linux </a></li>				    
+                <li class="nav-item"><a class="nav-link scrollto" href="#item-8-3">Postgresql </a></li>				    
+		  <ul>
+                    <li class="nav-item"><a class="nav-link scrollto" href="#item-8-3-1">Install</a></li>
+                    <li class="nav-item"><a class="nav-link scrollto" href="#item-8-3-2">Networking  </a></li>
+                    <li class="nav-item"><a class="nav-link scrollto" href="#item-8-3-3">pgadmin  </a></li>
+		  </ul>
+
+                <li class="nav-item"><a class="nav-link scrollto" href="#item-8-4">ecom  </a>				    
+		  <ul>
+                    <li class="nav-item"><a class="nav-link scrollto" href="#item-8-4-1">ERD  </a></li>				    
+                    <li class="nav-item"><a class="nav-link scrollto" href="#item-8-4-2">DAO  </a></li>				    
+		  </ul>
+		</li>
+                <li class="nav-item section-title mt-3"><a class="nav-link scrollto" href="#section-9"><span class="theme-icon-holder me-2"><i class="fas fa-book-reader"></i></span>FAQ</a></li>				    
+                <li class="nav-item"><a class="nav-link scrollto" href="#item-9-1">URL's</a></li>				    
+                <li class="nav-item"><a class="nav-link scrollto" href="#item-9-2">Section Item 9.2</a></li>				    
+                <li class="nav-item"><a class="nav-link scrollto" href="#item-9-3">Section Item 9.3</a></li>			    
+              </ul>		    
+              </nav><!--//docs-nav-->	    
+            </div><!--//docs-sidebar-->	    
+            <div class="docs-content">		    
+               <div class="container">			    
+               <!-- ##################################  -->
+               <!-- # beginning of the documentation #  -->
+               <!-- ##################################  -->
+                  <article class="docs-article" id="section-1">			    
+                     <header class="docs-header">					    
+                         <h1 class="docs-heading">Introduction </h1>                                             
+                         <!--<span class="docs-time">Last updated: 3 days ago</span> -->
+		<section class="docs-intro">
+		  <h3> Congratualation on your HDA acquisition ! <br /></h3> 
+                  <p> You will find detailed components of <b>H D A </b>
+
+		  <h5>Components of HDA full rack </h5>
+		  <p>A full rack consist of 1 Master node, 1 Secondary Master Node, and 8 worker Nodes</p>
+		  <p><b>Worker Node:</b> <br>
+                  &emsp;1 CPU <br>
+                  &emsp;16G Ram <br>
+                  &emsp;100 GB HDD <br>
+                  &emsp;2 x 1G ethernet <br>
+                  &emsp;1 x 10G infiniband  
+                  </p>
+		  <p><b>Master Node:</b> <br>
+                  &emsp;2 CPU <br>
+                  &emsp;32G Ram <br>
+                  &emsp;300 GB HDD <br>
+                  &emsp;1 x 10G infiniband  
+                  </p>
+		<p><b>Secondary Master Node:</b> <br>
+                &emsp;2 CPU <br>
+                &emsp;32G Ram <br>
+                &emsp;300 GB HDD <br>
+                &emsp;2 x 1G ethernet <br>
+                &emsp;1 x 10G infiniband  
+                </p>
+		<p><b>10gb switch:</b> <br>
+                &emsp; 1U Rack Mount  
+                &emsp; 24 10G  ports<br>
+                &emsp; 2 100G QSFP28 ports <br>
+                </p>
+                </section>
+		<section class="docs-section" id="item-1-1">
+						<h2 class="section-heading">HDA Cluster</h2>
+						<div class="col-12 col-md-4 mb-3">
+						       <a href="assets/images/HDA_rack.png"><img  
+                                                       src="assets/images/HDA_switch.png" alt="" title="Hyperscale Data Appliance"/></a> 
+
+						      <!-- <a href="assets/images/HDA_rack.png"><img class="figure-img img-fluid shadow rounded" 
+                                                       src="assets/images/HDA_rack.png" alt="" title="Hyperscale Data Appliance"/></a>  -->
+						</div><!--//col-->
+				    </section>
+
+				    <section class="docs-section" id="item-1-2">
+					<h2 class="section-heading">Master node</h2>
+					  <p>  
+                                              Serves as the central entry point and management hub. 
+                                              It provides a single SQL interface to users, allowing them to interact with the 
+                                              cluster as if it were a single, large PostgreSQL database, while the underlying 
+                                              user data is processed in parallel across multiple segment nodes.
+                                          </p>
+				    </section>
+
+				    <section class="docs-section" id="item-1-3">
+				        <h2 class="section-heading">Secondary Master node</h2>
+					  <p>
+                                              acts as a warm standby for the primary master instance to ensure high availability (HA). 
+                                              It provides a failover solution in case the primary master node becomes 
+                                              non-operational, allowing the cluster to continue operating without data loss. 
+                                          </p>
+                                    </section>
+
+				    <section class="docs-section" id="item-1-4">
+					<h2 class="section-heading">Worker nodes</h2>
+					  <p>
+                                            Responsible for storing user data and performing parallel processing 
+                                            of SQL queries dispatched by the coordinator node. 
+                                            They execute query plans independently on local data, 
+                                            handle data shuffles, and perform DML operations (inserts, updates, 
+                                            deletes) to maximize analytical performance. 
+                                          </p>
+				    </section><!--//section-->
+
+				    <section class="docs-section" id="item-1-5">
+					<h2 class="section-heading">Interconnect</h2>
+					  <p>
+                                            24 Ports 10G L3 Switch<br> 
+                                            The backbone of Greenplum's parallel processing. It 
+                                            handles the intense network traffic generated during data redistribution, 
+                                            (MOTION nodes) during query execution.
+                                          </p>
+				    </section><!--//section-->
+
+			    </article>
+
+			    <article class="docs-article" id="section-2">
+				    <header class="docs-header">
+					    <h1 class="docs-heading">Setup</h1>
+					    <section class="docs-intro">
+						    <p>The HDA comes preinstalled and preconfigured. We will go through the physical setup of the HDA cluster in your data center.</p>
+						</section><!--//docs-intro-->
+				    </header>
+				     <section class="docs-section" id="item-2-1">
+					<h2 class="section-heading">Power</h2>
+                                          <p>      
+                                            Idel: 600W <br> 
+                                            Load: 2000W </p>
+                                           </p>
+					</section><!--//section-->
+
+					<section class="docs-section" id="item-2-2">
+						<h2 class="section-heading">Network </h2>
+						<p>10Gb interconnect throughout the cluster handled by 10Gb managed switch</p>
+					</section><!--//section-->
+
+					<section class="docs-section" id="item-2-3">
+						<h2 class="section-heading">Starting up</h2>
+						<p>Power on: <br>
+                                                   Switch <br>
+                                                   Master nodes <br>
+                                                   worker nodes <br>
+                                                </p>
+					</section><!--//section-->
+			    </article><!--//docs-article-->
+
+
+			    <article class="docs-article" id="section-3">
+				    <header class="docs-header">
+					    <h1 class="docs-heading">HDA Portal</h1>
+					    <section class="docs-intro">
+						    <p>  portal is written in <b>Flask 3.1.1 &nbsp; Werkzeug 3.1.3 </b> on <b>Python 3.12.10 </b>. see <a href="#kb1">Knowledge base </a> <br>
+                                    
+                                                  </p>					
+                                            </section><!--//docs-intro-->				   
+                                   </header>				     
+                                   <section class="docs-section" id="item-3-1">		
+                                       <h2 class="section-heading">Section Item 3.1</h2>					
+                                           <p>seciton item 3.1 paragraph.</p>					
+                                   </section><!--//section-->										
+                                   <section class="docs-section" id="item-3-2">						
+                                       <h2 class="section-heading">Section Item 3.2</h2>						
+                                           <p>section item-3-2 paragraph</p>					
+                                   </section><!--//section-->
+                                   <section class="docs-section" id="item-3-3">						
+                                      <h2 class="section-heading">Section Item 3.3</h2>						
+                                            <p>section item 3-3 paragraph </p>
+                                   </section><!--//section-->
+
+                           </article><!--//docs-article seciton-3 -->			    			    
+
+                           <article class="docs-article" id="section-4">
+		             <header class="docs-header">
+		                <h1 class="docs-heading">APIs</h1>
+			        <section class="docs-intro">
+				<p>APISs doc-intro paragraph.</p>
+						</section><!--//docs-intro-->
+				    </header>
+				     <section class="docs-section" id="item-4-1">
+						<h2 class="section-heading">Section Item 4.1</h2>
+						<p>section item 4.1 paragraph</p>
+					</section><!--//section-->
+
+					<section class="docs-section" id="item-4-2">
+						<h2 class="section-heading">Section Item 4.2</h2>
+						<p>item-4-2 paragraph.</p>
+					</section><!--//section-->
+
+					<section class="docs-section" id="item-4-3">
+						<h2 class="section-heading">Section Item 4.3</h2>
+						<p>  section Item 4.3 paragraph</p>
+					</section><!--//section-->
+			    </article><!--//docs-article-->
+
+			    <article class="docs-article" id="section-5">
+				    <header class="docs-header">
+					    <h1 class="docs-heading">Integration</h1>
+					    <section class="docs-intro">
+						    <p> Integration doc intro parapgraph.</p>
+						</section><!--//docs-intro-->
+				    </header>
+				     <section class="docs-section" id="item-5-1">
+						<h2 class="section-heading">Section Item 5.1</h2>
+						<p>section item 5.1 paragraph.</p>
+					</section><!--//section-->
+
+					<section class="docs-section" id="item-5-2">
+						<h2 class="section-heading">Section Item 5.2</h2>
+						<p>Seciton Item 5.2 paragraph.</p>
+					</section><!--//section-->
+
+					<section class="docs-section" id="item-5-3">
+							<h2 class="section-heading">Section Item 5.3</h2>
+						<p>Section item 5.3 paragraph.</p>
+					</section><!--//section-->
+			    </article><!--//docs-article-->
+			    
+			    
+		        <article class="docs-article" id="section-6">
+				    <header class="docs-header">
+					    <h1 class="docs-heading">Utilities</h1>
+					    <section class="docs-intro">
+						    <p>
+				Ansible is an open-source IT automation engine that simplifies complex  workflows, <br>
+				configuration management, and application deployments. It allows you to automate <br>
+				repetitive tasks—like updating servers or provisioning cloud resources—using <br>
+				simple, human-readable scripts
+						    </p>
+						</section><!--//docs-intro-->
+				    </header>
+				     <section class="docs-section" id="item-6-1">
+						<h2 class="section-heading">Ansible </h2>
+						<p> 
+						  root@penguin:/etc/apt/sources.list.d# apt install ansible <br>
+						  root@penguin:~/Downloads/ansible# cat <b>/etc/ansible/ansible.cfg</b><br>
+						  [defaults]<br>
+						  # Suppress general warning messages<br>
+						  deprecation_warnings = False<br>
+						  command_warnings = False<br>
+						  localhost_warning = False<br>
+						  <b>interpreter_python=auto_silent</b><br><br>
+						  root@penguin:~/Downloads/ansible# cat <b>/etc/ansible/hosts</b><br>
+						  &emsp;[hsio]<br>
+						  &emsp; 100.115.92.26<br><br>
+						  <b>Execution</b><br>
+						  root@penguin:~/Downloads/ansible# ansible hsio -a "uptime"<br>
+						  100.115.92.26 | CHANGED | rc=0 >><br>
+						  15:06:57 up 20:09,  3 users,  load average: 0.08, 0.02, 0.01<br>
+						  root@penguin:~/Downloads/ansible# <br><br>
+						  <b>Running the playbook</b> <br>
+						  Ansible comes with the ansible-playbook command to launch a playbook with.<br>
+						  Let's now run the plays we created:<br>
+						  $ <b>ansible-playbook simple_playbook.yml -i customhosts</b><br>
+						  Here is what happens when you run the preceding command:<br>
+						  • The ansible-playbook parameter is the command that takes the playbook<br>
+						  as an argument (simple_playbook.yml) and runs the plays against the hosts<br>
+						  • The simple_playbook parameter contains the two plays that we created: one<br>
+						  for common tasks, and the other for installing Nginx<br>
+						  • The customhosts parameter is our host's inventory, which lets Ansible know<br>
+						  which hosts, or groups of hosts, to call plays against<br>
+						</p>
+					</section><!--//section-->
+					
+					<section class="docs-section" id="item-6-2">
+						<h2 class="section-heading">Section Item 6.2</h2>
+						<p>Vivamus efficitur fringilla ullamcorper. Cras condimentum condimentum mauris, vitae facilisis leo. Aliquam sagittis purus nisi, at commodo augue convallis id. Sed interdum turpis quis felis bibendum imperdiet. Mauris pellentesque urna eu leo gravida iaculis. In fringilla odio in felis ultricies porttitor. Donec at purus libero. Vestibulum libero orci, commodo nec arcu sit amet, commodo sollicitudin est. Vestibulum ultricies malesuada tempor.</p>
+					</section><!--//section-->
+					
+					<section class="docs-section" id="item-6-3">
+							<h2 class="section-heading">Section Item 6.3</h2>
+						<p>Vivamus efficitur fringilla ullamcorper. Cras condimentum condimentum mauris, vitae facilisis leo. Aliquam sagittis purus nisi, at commodo augue convallis id. Sed interdum turpis quis felis bibendum imperdiet. Mauris pellentesque urna eu leo gravida iaculis. In fringilla odio in felis ultricies porttitor. Donec at purus libero. Vestibulum libero orci, commodo nec arcu sit amet, commodo sollicitudin est. Vestibulum ultricies malesuada tempor.</p>
+					</section><!--//section-->
+			    </article><!--//docs-article-->
+			    
+			    
+			    
+			    
+			    <article class="docs-article" id="section-8">
+				    <header class="docs-header">
+					    <h1 class="docs-heading">Resources</h1>
+					    <section class="docs-intro">
+						    <p>This Section contains knowledge base.</p>
+						</section><!--//docs-intro-->
+				    </header>
+				     <section class="docs-section" id="item-8-1">
+						<h2 id="kb1" class="section-heading">Flask</h2>
+						<p>
+						<h4>flask online development <a href="https://cocalc.com/auth/sign-in">Flask Online</a></h4>
+                                                    ~$ pwd <br> 
+                                                    /home/user  <br>
+                                                    ~$ mkdir hda_portal <br>
+                                                    ~$ cd hda_portal  <br>
+                                                   ~/hda_portal$  pip3 list |grep -i flask <br>
+                                                   <b>Flask 3.1.1</b> <br>
+                                                   ~/microblog$   python3 --version <br>
+                                                    <b>Python 3.12.10</b> <br>
+                                                   ~/hda_portal$   mkdir template <br>
+                                                   ~/hda_portal$   mkdir static <br>
+                                                   ~/hda_portal$   cd app/ <br>
+                                                   ~/hda_portal$   vi __init__.py <br>
+                                                   ~/hda_portal$  vi routes.py <br>
+                                                   ~/hda_portal$ cd .. <br>
+                                                   ~/hda_portal$ vi microblob.py <br>
+                                                   ~/hda_portal$ export FLASK_APP=microblog.py <br>
+                                                   ~/hda_portal$ flask run <br>
+                                                    * Serving Flask app 'microblog.py' <br>
+                                                    * Debug mode: off <br>
+                                                    WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead. <br>
+                                                    * Running on http://127.0.0.1:5000 <br>
+                                                    Press CTRL+C to quit <br>
+                                                    127.0.0.1 - - [17/Mar/2026 01:09:17] "GET / HTTP/1.0" 200 - <br>
+                                                    ^Z <br>
+                                                    bg <br>
+                                                    ~$ w3m http://127.0.0.1:5000 <br>
+                                                    <b>Hello, World </b><br>
+						    Do you want to exit w3m? (y/n) <br><br><br>
+						    
+						    <h4>Flask development on chromebook</h4><br>
+						   1. Use a Virtual environment<br>
+						   &emsp;  Install the venv tool<br> 
+						   root@chromebook:~# <b>mkdir flaskapp</b><br>
+						   root@chromebook:~# <b>cd flaskapp/</b><br>
+						   root@chromebook:~/flaskapp#<b> python3 -m venv venv</b><br>
+						   root@chromebook:~/flaskapp# <b>source venv/bin/activate</b><br>
+						   (venv) root@chromebook:~/flaskapp# <b>pip install flask</b><br>
+						   Collecting flask<br>
+						   Using cached flask-3.1.3-py3-none-any.whl (103 kB)<br>
+						   Collecting blinker>=1.9.0<br>
+						   Using cached blinker-1.9.0-py3-none-any.whl (8.5 kB)<br>
+						   Collecting click>=8.1.3<br>
+						   Using cached click-8.3.2-py3-none-any.whl (108 kB)<br>
+						   Collecting itsdangerous>=2.2.0<br>
+						   Using cached itsdangerous-2.2.0-py3-none-any.whl (16 kB)<br>
+						   Collecting jinja2>=3.1.2<br>
+						   Using cached jinja2-3.1.6-py3-none-any.whl (134 kB)<br>
+						   Collecting markupsafe>=2.1.1<br>
+						   Using cached markupsafe-3.0.3-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (22 kB)<br>
+		Collecting werkzeug>=3.1.0<br>
+		Using cached werkzeug-3.1.8-py3-none-any.whl (226 kB)<br>
+		Installing collected packages: markupsafe, itsdangerous, click, blinker, werkzeug, jinja2, flask<br>
+		Successfully installed blinker-1.9.0 click-8.3.2 flask-3.1.3 itsdangerous-2.2.0 jinja2-3.1.6 markupsafe-3.0.3 werkzeug-3.1.8<br>
+		(venv) root@chromebook:~/flaskapp# <b>which flask</b> <Br>
+		/root/flaskapp/venv/bin/flask                   <br> 
+		(venv) root@chromebook:~/flaskapp# cd venv/ <br>
+		root@chromebook:~/flaskapp/venv# <b>ls -l */ </b><br>
+		drwxr-xr-x 1 root root 174 Apr 10 16:06 bin/ <br>
+		drwxr-xr-x 1 root root  20 Apr 10 16:05 include/ <br>
+		drwxr-xr-x 1 root root  20 Apr 10 16:05 lib/ <br> <br>
+		drwxr-xr-x 1 root root  20 Apr 10 16:05 lib64/ <br>
+		drwxr-xr-x 1 root root 124 Apr 13 14:17 __pycache__/<br>
+		<b>-rw-r--r-- 1 root root 544 Apr 13 13:43 routes.py</b><br>
+		<b> -rw-r--r-- 1 root root 343 Apr 13 13:42 app.py </b><br>
+		<b>drwxr-xr-x 1 root root  20 Apr 13 14:11 static/</b><br>
+		<b> drwxr-xr-x 1 root root  56 Apr 13 15:59 templates/</b><br>
+		(venv) root@chromebook:~/flaskapp/venv# flask --app app run --debug --port 8080 <b>--host 0.0.0.0</b> <br>
+		* Serving Flask app 'app' <br>
+		* Debug mode: on <br>
+		WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead. <br>
+		<b>* Running on all addresses (0.0.0.0)</b> <br>
+		* Running on http://127.0.0.1:8080 <br> <br>
+		* Running on http://100.115.92.204:8080 <br>
+		Press CTRL+C to quit <br>
+		* Restarting with stat <br>
+		* Debugger is active! <br>
+		* Debugger PIN: 941-612-199 <br> 
+		<a href= "https://github.com/pallets-eco/flask-admin"><img src="assets/images/flask_on_chrome.png" alt="" title="flask admin"/></a> <br> 
+						  For HDA Portal, we are going to go with flask-admin <br>
+                                                   <a href= "https://github.com/pallets-eco/flask-admin"><img src="assets/images/flask-admin.png" alt="" title="flask admin"/></a> <br>
+
+						    
+				     </section><!--//section-->
+				     <section class="docs-section" id="item-8-2">
+					     <h2 id="kb1" class="section-heading">HTML and Linux </h2><br>
+						<p>
+						<h4> delete by inode number</h4> <br>
+						root@chromebook:~/flaskapp/venv# find . -inum 65266 -delete <br> <br>
+						root@chromebook:~/flaskapp/venv# ls <br>
+						app.py   bin  '--exclude=__pycache__'   hello.py   include   lib   lib64    <br>
+						__pycache__   pyvenv.cfg   routes.py   static   templates <br>
+						root@chromebook:~/flaskapp/venv# find . -inum 65266 -delete <br>
+						root@chromebook:~/flaskapp/venv# ls -i <br>
+						65091  app.py  65267 '--exclude=__pycache__'  61931  include  61936  lib64         <br>
+						61938  pyvenv.cfg  65074  static 61937  bin     64490  hello.py  61933  lib   <br>
+						64484  __pycache__  65099  routes.py   65073  templates <br>
+						root@chromebook:~/flaskapp/venv# find . -inum 65267 -delete <br>
+						root@chromebook:~/flaskapp/venv# ls <br>
+						app.py  bin  hello.py  include  lib  lib64  __pycache__  pyvenv.cfg  routes.py   <br>
+						static  templates <br><br>
+						<h4> ssh penguin </h4> 
+						make sure sshd is enabled and started <br>
+						ssh through ipv4 only by speficying -4 on the ssh command <br>
+						root@penguin:~# ssh -4 localhost -l hyperscaleios <br>
+						root@penguin:~# ssh -4 100.115.92.203 -l hyperscaleios<br>
+						/etc/ssh/sshd_config<br>
+						Port 22<br>
+						AddressFamily inet<br>
+						#ListenAddress ::<br>
+						ListenAddress 0.0.0.0<br>
+                                                </p>
+				     </section><!--//section-->
+				     <section class="docs-section" id="item-8-3">
+						<h2 id="kb1" class="section-heading">Postgresql </h2>
+						<p>
+						We replace Greenplum with Postgresql
+						</p>
+					<section class="docs-section" id="item-8-3-1">
+						<h2 class="section-heading">Install Postgresql</h2>
+						<p> 
+                                                   <div class="boxed">
+						    root@penguin:~#  apt install curl ca-certificates <br>
+						    root@penguin:~#  install -d /usr/share/postgresql-common/pgdg <br>
+						    root@penguin:~# curl -o /usr/share/postgresql-common/pgdg/apt.postgresql.org.asc --fail https://www.postgresql.org/media/keys/ACCC4CF8.asc <br><br>
+						    Create /etc/apt/sources.list.d/pgdg.sources <br>
+						    Types: deb deb-src <br>
+						    URIs: https://apt.postgresql.org/pub/repos/apt<br>
+						    Suites: trixie-pgdg<br>
+						    Architectures: amd64<br>
+						    Components: main<br>
+						    Signed-By: /usr/share/postgresql-common/pgdg/apt.postgresql.org.asc<br>
+						    root@penguin:~# apt install postgresql-15 <br><br>
+						   </div>
+						   <br>
+						   <i><b>Reset postgres password </b></i><br>
+						  <i>Find version of installed package postgresql </i><br>
+						  sudo su - postgres <br>
+						  psql postgres postgres <br>
+						  ALTER USER postgres PASSWO <br>RD 'changeme';
+						  \q <br>
+						  <i><b>test postgres user</b></i><br>
+						  psql -h localhost postgres postgres<br>
+						   
+						  apt list --installed |grep -i postgres<br>
+						  postgresql-16/trixie-pgdg,now 16.14-1.pgdg13+1 amd64 [installed] <br><br>
+						  <i><b>#List where postgresql is installed</b></i><br>
+						  root@penguin:~# dpkg -L postgresql-16 | more <br>
+						  /usr/lib/postgresql <br>
+						  /usr/lib/postgresql/16<br>
+						  /usr/lib/postgresql/16/bin<br>
+						  /usr/lib/postgresql/16/bin/initdb<br>
+						  <b>. </b> <br>
+						  <b>. </b> <br>
+						  <b>.</b> <br>
+						  <i><b>#ecom data definition  </b></i><br>
+						  <a href="assets/docs/ecom_from_prod.sql" target="_blank">ecom schema</a><br>
+						  <a href="assets/docs/ecom_default_data.sql" target="_blank">ecom default data</a><br><br>
+
+						  <i><b>#create users </b></i><br>
+					             sudo su - postgres <br>
+
+						  postgres@penguin:~$ psql <br>
+						  psql (15.16 (Debian 15.16-0+deb12u1)) <br>
+						  Type "help" for help. <br> <br>
+						     postgres=# create user hsio with password 'changeme';<br>
+						     postgres=# GRANT ALL PRIVILEGES ON DATABASE ecom TO hsio;<br>
+						     postgres=# ALTER USER hsio WITH SUPERUSER;<br><br>
+						     postgres=# create user hyperscaleios with password 'changeme';<br>
+						     postgres=# GRANT ALL PRIVILEGES ON DATABASE ecom TO hyperscaleios;<br>
+						     postgres=# ALTER USER hyperscaleios WITH SUPERUSER;<br><br>
+						     postgres=# \du <br>
+						       List of roles <br>
+										     Role name   |                         Attributes                         | Member of <br>
+						       ---------------+------------------------------------------------------------+----------- <br>
+						        hsio          | Create DB                                                  | {} <br>
+						        hyperscaleios | Create DB                                                  | {} <br>
+						        postgres      | Superuser, Create role, Create DB, Replication, Bypass RLS | {} <br> 
+						     postgres=# alter user hsio createrole; <br>
+						     ALTER ROLE <br>
+						     postgres=# alter user hyperscale createrole; <br>
+						     ERROR:  role "hyperscale" does not exist <br>
+						     postgres=# alter user hyperscaleios createrole; <br>
+						     ALTER ROLE <br>
+						     postgres=# alter user hsio with superuser; <br>
+						     ALTER ROLE <br>
+						     postgres=# alter user hyperscaleios with superuser; <br>
+						     ALTER ROLE <br>
+						<i> Test user hyperscaleios...</i><br>
+						 hyperscaleios@penguin$ psql -U hyperscaleios ecom <br><br>
+						 Password for user hyperscaleios: <br>
+						 psql (<b>15.16 (Debian 15.16-0+deb12u1)</b>)#Postgresql vesion<br>
+						 Type "help" for help.<br>
+						   ecom=# \du<br>
+						   List of roles<br>
+						   Role name   &emsp;&nbsp;&nbsp;&nbsp;| Attributes &emsp;&emsp;&emsp; &emsp;&emsp;&emsp; &emsp;&emsp;&emsp; &emsp;&emsp;&emsp; &emsp;&emsp;&emsp;<br>
+						   -------------+-----------------------------------------------------------------<br>
+						   hsio  &emsp; &emsp; &emsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| Superuser, Create role, Create DB                           <br>
+						   hyperscaleios &nbsp;| Superuser, Create role, Create DB                           <br>
+						   postgres &emsp;&emsp; &nbsp;&nbsp;| Superuser, Create role, Create DB, Replication, Bypass RLS <br>
+						 ecom=#<br>
+						</p>
+						<i><b>test user hsio login</b></i><br>
+						 root@penguin:~# psql -U hsio ecom<br>
+						 Password for user hsio:&emsp;&emsp;#it's <b>changeme</b><br>
+						 psql (15.16 (Debian 15.16-0+deb12u1))<br>
+						 Type "help" for help.<br>
+						 ecom-# \q<br>
+						 root@penguin:~#<br>
+						<i><b>test user hyperscaleios login</b></i><br>
+						root@penguin:~# psql -U hyperscaleios ecom<br>
+						Password for user hyperscaleios:<br>
+						psql (15.16 (Debian 15.16-0+deb12u1))<br>
+						Type "help" for help.<br>
+						<br>
+						ecom=# \dl<br>
+						Large objects<br>
+						ID | Owner | Description<br>
+						----+-------+-------------<br>
+						(0 rows)<br>
+						<br>
+						ecom=# \l  &emsp;--list databases, the other databases are left out of the following output<br>            
+						<table border="1">
+                                               <!-- Row 1: Often used for Headers -->
+                                               <tr>
+                                                 <th>Name</th><th>Owner</th><th>Encoding</th><th>Collate</th>
+                                                 <th>Ctype</th><th>ICU Locale</th><th>Locale provider</th><th>Access privilleges</th>
+                                               </tr>
+                                               <!-- Row 2 -->
+                                               <tr>
+                                                 <td>Ecom</td><td>Postgres&nbsp;</td><td>UTF-8</td><td>en_US.UTF-8</td>
+                                                 <td>en_US.UTF-8</td><td></td><td>libc</td><td>=Tc/postgres</td>
+                                               </tr>
+                                               <!-- Row 3 -->
+                                               <tr>
+                                               <td>&emsp;</td><td>&emsp;</td><td>&emsp;</td><td>&emsp;</td>
+                                               <td>&emsp;</td><td>&emsp;</td><td>&emsp;</td><td>postgres=CTc/postgres</td>
+                                              </tr>
+                                              <!-- Row 4 -->
+                                             <tr>
+                                              <td>&emsp;</td><td>&emsp;</td><td>&emsp;</td><td>&emsp;</td>
+                                              <td>&emsp;</td><td>&emsp;</td><td>&emsp;</td><td>hsio=CTc/postgres</td>
+                                             </tr>
+                                              <!-- Row 5 -->
+                                             <tr>
+                                             <td>&emsp;</td><td>&emsp;</td><td>&emsp;</td><td>&emsp;</td>
+                                             <td>&emsp;</td><td>&emsp;</td><td>&emsp;</td><td>hyperscaleios=CTc/postgres</td>
+                                             </tr>
+                                             </table>
+				     </section><!--//section 8-3-1-->
+				     <section class="docs-section" id="item-8-3-2">
+						<h2 id="kb1" class="section-heading">Networking </h2>
+						<p>
+						<i>Preconfigured pg_hba </i><br>
+						add &emsp; # IPv4 <b>any</b> IP connections: &emsp; to &emsp; /etc/postgresql/15/main/pg_hba.conf<br>
+						host  &emsp; &emsp;all &emsp;&emsp; all &emsp;&emsp;0.0.0.0/0 &emsp;&emsp;md5<br><br>
+						<b>Modify</b> /etc/postgresql/15/main/postgresql.conf to listen on <b>all</b> addresses...<br>
+					       listen_address = '*'<br>
+
+						</p>
+				     </section><!--//section-->
+				     <section class="docs-section" id="item-8-3-3">
+						<h2 id="kb1" class="section-heading">PostgreSQL Administration </h2>
+						<p>
+						<i>Install pgadmin with dpkg command</i><br>
+						dpkg -i /mnt/chromeos/MyFiles/Downloads/pgadmin4-desktop_9.14-1.bookworm_amd64.deb <br>
+						<img class="logo-icon me-2" src="assets/images/pgadmin4.jpeg" width="40" height="30" alt="pgadmin4"> <b>pgadmin4</b> <br>
+						<img class="logo-icon me-2" src="assets/images/pgadmin.png" width="900" height="500" alt="ECOM">
+						</p>
+				     </section><!--//section-->
+				     <section class="docs-section" id="item-8-4-1">
+						<h2 id="kb1" class="section-heading">Entity Relationship Diagram</h2>
+                                                  <img class="logo-icon me-2" src="assets/images/HSIO_ECOM.drawio.png" width="900" height="1000" alt="ECOM">
+
+				     </section><!--//section-->
+				     <section class="docs-section" id="item-8-4-2">
+						<h2 id="kb1" class="section-heading">ecom Data Access Objects</h2>
+						<p>
+                                                   class <b>Contact</b> <br>
+                                                    &emsp;  def __init__(self, contat_id, cust_id, fname, lname, email,crdate): <br>
+                                                      &emsp; &emsp; self.contact_id = contact_id <br>
+                                                      &emsp; &emsp; self.cust_id = cust_id <br>
+                                                      &emsp; &emsp; self.fname = fname <br>
+                                                      &emsp; &emsp; self.lname = lname <br>
+                                                      &emsp; &emsp; self.email = email <br>
+                                                      &emsp; &emsp; self.crdate = crdate <br><br>
+
+                                                    &emsp; def getContact_id(): <br>
+                                                    &emsp; &emsp; retrun self.contact_id <br>
+
+                                                    &emsp; def setContact_id(contact_id): <br>
+                                                    &emsp; &emsp; this.contact_id = contact_id <br><br>
+
+                                                    &emsp; def getCust_id(): <br>
+                                                    &emsp; &emsp; retrun self.cust_id <br>
+
+                                                    &emsp; def setCust_id(cust_id): <br>
+                                                    &emsp; &emsp; this.cust_id = cust_id <br><br>
+
+                                                    &emsp; def getFname(): <br>
+                                                    &emsp; &emsp; retrun self.fname <br>
+
+                                                    &emsp; def setFname(fname): <br>
+                                                    &emsp; &emsp; this.fname = fname <br><br>
+
+                                                    &emsp; def getlname(): <br>
+                                                    &emsp; &emsp; retrun self.lname <br>
+
+                                                    &emsp; def setLname(lname): <br>
+                                                    &emsp; &emsp; this.lname = lname <br><br>
+
+                                                    &emsp; def getEmail(): <br>
+                                                    &emsp; &emsp; retrun self.email <br>
+
+                                                    &emsp; def setEmail(email): <br>
+                                                    &emsp; &emsp; this.email = email <br><br>
+
+                                                    &emsp; def getCrdate(): <br>
+                                                    &emsp; &emsp; retrun self.crdate <br>
+
+                                                    &emsp; def setCrdate(crdate): <br>
+                                                    &emsp; &emsp; this.crdate = crdate <br><br>
+
+                                                </p>
+				     </section><!--//section-->
+			    </article><!--//docs-article-->
+			    
+			    
+			    <article class="docs-article" id="section-9">
+				    <header class="docs-header">
+					    <h1 class="docs-heading">FAQs</h1>
+					    <section class="docs-intro">
+						    <p>Find answers to your questions here...</p>
+						</section><!--//docs-intro-->
+				    </header>
+				     <section class="docs-section" id="item-9-1">
+						<h2 class="section-heading">URL's </h2>
+						<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i><b>E</b>ntity <b>R</b>elationship <b>D</b>iagram site</h5>
+						<p>
+					        <a href="https://app.diagrams.net" target="_blank">app.diagram.net </a>	Online ERD Maker.diagrams.net <br>
+						<a href="https://drive.google.com/file/d/1AYNZm79S_pf6titrenFq28Tz0Vuf9lZ9/view?usp=sharing" target="_blank">ecom ERD </a> Hyperscaleios_google_drive<br>
+						</p>
+						<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>How to ipsum dolor sit amet quam tortor?</h5>
+						<p>nonummy id, metus. Nullam accumsan lorem in dui. </p>
+						<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>Can I  bibendum sodales?</h5>
+						<p>. Nullam accumsan lorem in dui. </p>
+						<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>Where arcu sed urna gravida?</h5>
+						<p>Aimperdiet eu viverra viverra, ultricies nec urna. </p>
+					</section><!--//section-->
+
+					<section class="docs-section" id="item-9-2">
+						<h2 class="section-heading">Section Item 9.2 <small>(FAQ Category Two)</small></h2>
+						<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>What's sit amet quam eget lacinia?</h5>
+						<p> vitae, justo. Nullam dictum felis eu pede mollis pretium.</p>
+						<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>How to ipsum dolor sit amet quam tortor?</h5>
+						<p>is sed, nonummy id, metus. Nullam accumsan lorem in dui. </p>
+						<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>Can I  bibendum sodales?</h5>
+						<p> id, metus. Nullam accumsan lorem in dui. </p>
+						<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>Where arcu sed urna gravida?</h5>
+						<p>Aenean et sodales nisi, vel efficitur sapien. Quisque molestie diam tricies nec urna. </p>
+					</section><!--//section-->
+
+					<section class="docs-section" id="item-9-3">
+							<h2 class="section-heading">Section Item 9.3 <small>(FAQ Category Three)</small></h2>
+						    <h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>How to itudin justo vel fermentum?</h5>
+							<p>Donec sodales sagittis magna. Sed consequat, leo eget bibendcumsan lorem in dui. </p>
+							<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>Howlong bibendum sodales?</h5>
+							<p>Fusce vulputate eleifend sapien. Vestibulum purus quam, scelaccumsan lorem in dui. </p>
+							<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>Whee dapibus sollicitudin?</h5>
+							<p>Aenean et sodales nisi, vel efficitur sapien. Quisque molest ultricies nec urna. </p>
+					</section><!--//section-->
+			    </article><!--//docs-article-->
+
+			    <footer class="footer">
+				    <div class="container text-center py-5">
+			            <small class="copyright">Designed with 
+                                       <span class="sr-only">love</span><i class="fas fa-heart" style="color: #fb866a;"></i> 
+                                       by <a class="theme-link" href="http://themes.3rdwavemedia.com" target="_blank">Brady Chang</a> for developers</small>
+				        <ul class="social-list list-unstyled pt-4 mb-0">
+					    <li class="list-inline-item"><a href="#"><i class="fa-brands fa-github fa-fw"></i></a></li> 
+				            <li class="list-inline-item"><a href="#"><i class="fa-brands fa-x-twitter fa-fw"></i></a></li>
+				            <li class="list-inline-item"><a href="#"><i class="fa-brands fa-slack fa-fw"></i></a></li>
+				            <li class="list-inline-item"><a href="#"><i class="fa-brands fa-product-hunt fa-fw"></i></a></li>
+				            <li class="list-inline-item"><a href="#"><i class="fa-brands fa-facebook-f fa-fw"></i></a></li>
+				            <li class="list-inline-item"><a href="#"><i class="fa-brands fa-instagram fa-fw"></i></a></li>
+				        </ul><!--//social-list-->
+				    </div>
+			    </footer>
+		    </div> 
+	    </div>
+    </div><!--//docs-wrapper-->
+
+
+    <!-- Javascript -->          
+    <script src="assets/plugins/popper.min.js"></script>
+    <script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>  
+
+
+    <!-- Page Specific JS -->
+    <script src="assets/plugins/smoothscroll.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/highlight.min.js"></script>
+    <script src="assets/js/highlight-custom.js"></script> 
+    <script src="assets/plugins/simplelightbox/simple-lightbox.min.js"></script>      
+    <script src="assets/plugins/gumshoe/gumshoe.polyfills.min.js"></script> 
+    <script src="assets/js/docs.js"></script> 
+
+
+</body>
+</html> 
